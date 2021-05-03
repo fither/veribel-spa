@@ -1,0 +1,510 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow: hidden auto;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  text-decoration: none;
+  color: darkgrey;
+}
+
+section {
+  width: 100%;
+  height: 100%;
+  transition: transform 200ms ease;
+}
+
+.hamburger-menu {
+  width: 22.5rem;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 2rem;
+  position: fixed;
+  z-index: 2;
+  background-color: #e8e6e6;
+  top: 0;
+  left: 0;
+  transform: translate3d(-100%, 0, 0);
+  transition: all 300ms ease;
+}
+
+.hamburger-menu.active {
+  transform: translate3d(0, 0, 0);
+}
+
+.hamburger-menu.active .hamburger-menu-close {
+  display: flex;
+}
+
+.hamburger-menu-close {
+  position: absolute;
+  width: 14%;
+  height: 10%;
+  top: 0%;
+  left: 100%;
+  font-size: 8vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.hamburger-menu-close:hover {
+  filter: drop-shadow(0 0 0.2em black);
+  color: #1a73e9;
+  cursor: pointer;
+}
+
+.hamburger-menu-close::after {
+  display: inline-block;
+  content: "\00d7";
+}
+
+.hamburger-menu-button {
+  cursor: pointer;
+  display: none;
+}
+
+.hamburger-menu-button .hamburger-menu-button-p1,
+.hamburger-menu-button .hamburger-menu-button-p2,
+.hamburger-menu-button .hamburger-menu-button-p3 {
+  background-color: black;
+  width: 100%;
+  height: 0.2rem;
+  padding: 0.2rem 0 0 0;
+  margin-bottom: 0.4rem;
+  transition: all 200ms ease;
+}
+
+.hamburger-menu-button:hover .hamburger-menu-button-p1,
+.hamburger-menu-button:hover .hamburger-menu-button-p2,
+.hamburger-menu-button:hover .hamburger-menu-button-p3 {
+  background-color: #1a73e9;
+  margin-bottom: 0.6rem;
+}
+
+.hamburger-menu .hamburger-logo {
+  width: 100%;
+  justify-content: center;
+}
+
+.hamburger-menu .hamburger-logo img {
+  width: 75%;
+  height: auto;
+}
+
+.hamburger-menu .hamburger-links {
+  text-align: center;
+  flex-direction: column;
+}
+
+.hamburger-menu .hamburger-writeus {
+  justify-content: center;
+}
+
+.looking-for {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate3d(0, 100%, 0);
+  transition: all 200ms ease;
+  display: none;
+}
+
+.looking-for .search-bar {
+  position: relative;
+  width: 30rem;
+  height: 5rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.looking-for .search-bar input {
+  box-sizing: border-box;
+  border-radius: 5rem;
+  padding: 1rem 2rem 1rem 2rem;
+  outline: none;
+  border: 0.1rem solid rgba(133, 133, 133, 0.3);
+  transition: border 200ms ease;
+  width: 100%;
+  height: 100%;
+  font-size: 3vw;
+}
+
+.looking-for .search-bar input:focus {
+  border: 0.1rem solid black;
+}
+
+.looking-for .close-button {
+  position: absolute;
+  right: 2rem;
+  top: -1rem;
+  width: 3.5rem;
+  height: 9rem;
+  font-size: 8vw;
+  color: #1a73e9;
+  cursor: pointer;
+  transition: transform 1s ease;
+}
+
+.looking-for .close-button:hover {
+  transform: rotate(360deg);
+}
+
+.looking-for .close-button:after {
+  display: inline-block;
+  content: "\00d7";
+}
+
+.navigation {
+  position: sticky;
+  top: 0;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  z-index: 2;
+}
+
+.navigation-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.navigation .search-icon {
+  padding-right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navigation .search-icon img {
+  width: 75%;
+  height: auto;
+}
+
+.row.head-navbar {
+  font-size: 1.25vw;
+}
+
+.row.head-navbar .link-underliner {
+  width: 100%;
+  height: 0.5rem;
+  position: relative;
+  bottom: -0.8rem;
+  left: 0;
+  transform: translateX(0);
+  background-color: #1a73e9;
+  visibility: hidden;
+}
+
+.row.head-navbar li:hover .link-underliner {
+  visibility: visible;
+  animation-name: underliner;
+  animation-duration: 200ms;
+}
+
+@keyframes underliner {
+  from {
+    transform: translateX(-100%);
+  }
+}
+
+button {
+  color: #fff;
+  background-color: dodgerblue;
+  border-radius: 5rem;
+  padding: 0.5rem 1rem;
+  outline: none;
+  border: none;
+}
+
+.navbar a {
+  color: black;
+  white-space: nowrap;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.contact-us {
+  background-image: url("./icons/hero_FAQ.jpg");
+  width: 100%;
+  position: relative;
+  padding: 0 3rem 3rem 3rem;
+}
+
+.row.title-little span {
+  color: white;
+  font-size: 2vw;
+  padding: 2rem 0 0 5rem;
+}
+
+.row.title-big span {
+  font-size: 4vw;
+  color: white;
+  padding: 0 0 0 5rem;
+}
+
+#map {
+  width: 90%;
+  height: 90%;
+}
+
+.col.info {
+  color: #fff;
+  line-height: 1.5rem;
+}
+
+.row.info {
+  margin: 1rem 0 1rem 1rem;
+}
+
+.row.info .col.icon .row {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.row.info .col.icon img {
+  width: 100%;
+  height: auto;
+  padding: 0.5rem;
+  background: white;
+  transition: all 200ms ease;
+}
+
+.row.info:hover .col.icon img {
+  background: #1a73e9;
+}
+
+.row.info .col.content {
+  padding: 0 0 0 2rem;
+}
+
+.row.info .col.content .row.title {
+  font-size: 1.2vw;
+  padding: 0 0 0rem 0;
+}
+
+.row.info .col.content .row.content {
+  font-size: 1.6vw;
+}
+
+.col.form input {
+  border-radius: 5rem;
+}
+
+.col.form textarea {
+  border-radius: 0.5rem;
+}
+
+.btn.btn-form-submit {
+  border-radius: 5rem;
+  background-color: #f8d85d;
+  font-size: 1.2vw;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+}
+
+.contact-header-image {
+  width: 80%;
+  padding: 0 0 0 5rem;
+}
+
+.contact-header-image img {
+  width: 100%;
+  height: auto;
+}
+
+.contact-header-title {
+  font-size: 1.8vw;
+  font-weight: bold;
+  padding: 2rem 0 0 5rem;
+}
+
+.contact-info {
+  display: flex;
+}
+
+.contact-info .row.info {
+  color: #000;
+}
+
+.contact-info .row.info .col.icon img {
+  background: #1a73e9;
+}
+
+.contact-info .row.info:hover .col.icon img {
+  background: white;
+}
+
+.customer-comment {
+  padding: 2rem 7rem;
+}
+
+.customer-comment .row.base {
+  background-color: #1a73e9;
+  margin: 10rem 4rem 2rem 4rem;
+  padding: 0 0 3rem 0;
+  border-radius: 1rem;
+  color: #fff;
+}
+
+.customer-comment .row.base .profile-photo {
+  position: relative;
+  width: 20%;
+  height: auto;
+  left: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #fff;
+  transform: translate(-50%, -30%);
+}
+
+.customer-comment .row.base .profile-photo img {
+  width: 100%;
+  height: auto;
+}
+
+.row.base .row.content {
+  margin: 0rem 3rem 2rem 3rem;
+  text-align: center;
+  font-size: 2vw;
+}
+
+.row.base .row.name,
+.row.base .row.company {
+  justify-content: center;
+  width: 100%;
+  font-size: 1.6vw;
+  margin: 0;
+}
+
+.useful {
+  display: flex;
+  padding: 0 7rem;
+}
+
+.useful .col.col-4 {
+  padding: 5rem 0;
+}
+
+.useful .row.title {
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.useful .row.title,
+.useful .row.links {
+  justify-content: center;
+}
+
+.useful .row.title-one {
+  font-size: 1.6vw;
+  color: #1a73e9;
+}
+
+.useful .row.title-one a {
+  color: #1a73e9;
+}
+
+.useful .row.footer {
+  margin: 0 1rem;
+}
+
+.footer .row {
+  margin: 0;
+  padding: 3rem;
+}
+
+@media only screen and (max-width: 1024px) {
+  .col.form,
+  .col.info,
+  .col.map {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .col.map {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+  }
+
+  .space {
+    display: none;
+  }
+
+  .row.logo {
+    justify-content: center;
+  }
+
+  .contact-header-image {
+    width: 90%;
+  }
+
+  .row.info .col.icon .row {
+    width: 5vw;
+  }
+
+  .col.info {
+    padding-top: 3rem;
+  }
+
+  .customer-comment {
+    padding: 0 0;
+  }
+
+  .contact-us-form {
+    padding: 7.5rem 0 0 0;
+  }
+
+  .contact-info {
+    flex-wrap: wrap;
+  }
+
+  .row.head-navbar {
+    display: none;
+  }
+  .hamburger-menu-button {
+    display: block;
+  }
+
+  .useful {
+    flex-direction: column;
+  }
+
+  .useful .col-4 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .row.link-info {
+    flex-direction: column;
+  }
+}
